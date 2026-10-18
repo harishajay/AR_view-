@@ -1,0 +1,6 @@
+{
+  "name": "HomiesInn - Spatial Living & 3D Interactive Floorplan",
+  "description": "Interactive 3D PG hostel suite floorplan, walkthrough mode, real-time lighting simulation, room inspector, and camera-based AR pod projection.",
+  "requestFramePermissions": ["camera"],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
