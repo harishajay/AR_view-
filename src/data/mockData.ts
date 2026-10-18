@@ -304,3 +304,85 @@ export const WALKTHROUGH_HOTSPOTS: Hotspot[] = [
     specs: ['Kohler Matte Black Fixtures', '25L Instant High-Recovery Geyser', 'Exhaust Air Circulation'],
   },
 ];
+
+export interface MaintenanceTicketData {
+  id: string;
+  fixtureName: string;
+  category: 'electrical' | 'plumbing' | 'security' | 'hvac' | 'appliance';
+  location: string;
+  floor: string;
+  coordinates: [number, number, number];
+  issueDescription: string;
+  severity: 'high' | 'medium' | 'low';
+  technicianName: string;
+  technicianRole: string;
+  initialEtaMinutes: number;
+}
+
+export const MAINTENANCE_TICKETS: MaintenanceTicketData[] = [
+  {
+    id: 'ticket-lamp-b',
+    fixtureName: '65W Bedside GaN Reading Sconce',
+    category: 'electrical',
+    location: 'Suite 529 • Allocated Bed B',
+    floor: 'Floor 2',
+    coordinates: [-2.4, 1.1, 0.4],
+    issueDescription: 'LED luminaire flickering intermittently at low dimming levels. 230V socket voltage stable.',
+    severity: 'medium',
+    technicianName: 'Murugan K.',
+    technicianRole: 'Lead Certified Electrician (Block B)',
+    initialEtaMinutes: 14,
+  },
+  {
+    id: 'ticket-plumb-ensuite',
+    fixtureName: 'Thermostatic Rain Shower & Instant Geyser',
+    category: 'plumbing',
+    location: 'Suite 529 • Private En-Suite Bathroom',
+    floor: 'Floor 2',
+    coordinates: [3.0, 1.2, 2.5],
+    issueDescription: 'Slow continuous drip from cartridge valve (approx 1.2 L/hour). Mixer cartridge seal replacement required.',
+    severity: 'high',
+    technicianName: 'Karthik R.',
+    technicianRole: 'Plumbing & Hot Water Specialist',
+    initialEtaMinutes: 19,
+  },
+  {
+    id: 'ticket-keypad-entry',
+    fixtureName: 'Yale Digital RFID & NFC Suite Lock',
+    category: 'security',
+    location: 'Floor 2 Main Entry Corridor',
+    floor: 'Floor 2',
+    coordinates: [-1.0, 1.2, 4.4],
+    issueDescription: 'Keypad backlight delay; dynamic NFC token reader sluggish on cold restart.',
+    severity: 'medium',
+    technicianName: 'Vignesh S.',
+    technicianRole: 'IoT Access Security Technician',
+    initialEtaMinutes: 11,
+  },
+  {
+    id: 'ticket-mess-cooler',
+    fixtureName: 'Commercial RO Drinking Water Station & Bain-Marie',
+    category: 'appliance',
+    location: 'Ground Floor Hostel Dining Mess',
+    floor: 'Floor 1 (Ground)',
+    coordinates: [3.5, 0.9, -1.0],
+    issueDescription: 'Water chilling cycle cut-off temperature sensor calibration required before dinner rush.',
+    severity: 'high',
+    technicianName: 'Ramanathan P.',
+    technicianRole: 'Hostel Facilities Engineer',
+    initialEtaMinutes: 8,
+  },
+  {
+    id: 'ticket-rooftop-light',
+    fixtureName: 'Pergola Canopy Warm Amber Uplighting',
+    category: 'electrical',
+    location: 'Rooftop Sunset Lounge & Terrace',
+    floor: 'Rooftop Terrace (Floor 4+)',
+    coordinates: [2.5, 12.2, 0.5],
+    issueDescription: 'North string light segment disconnected due to afternoon sea breeze.',
+    severity: 'low',
+    technicianName: 'Murugan K.',
+    technicianRole: 'Lead Certified Electrician (Block B)',
+    initialEtaMinutes: 25,
+  },
+];

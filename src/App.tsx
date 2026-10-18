@@ -14,7 +14,8 @@ import { FutureRoadmapModal } from './components/FutureRoadmapModal';
 import { CADPlanModal } from './components/CADPlanModal';
 import { HDPhotoMatchModal } from './components/HDPhotoMatchModal';
 import { LuggageSimulatorModal } from './components/LuggageSimulatorModal';
-import { PODS_DATA } from './data/mockData';
+import { MaintenanceModal } from './components/MaintenanceModal';
+import { PODS_DATA, MAINTENANCE_TICKETS, MaintenanceTicketData } from './data/mockData';
 import { RoomPod, SpatialLayer, ViewMode } from './types';
 
 export default function App() {
@@ -33,6 +34,7 @@ export default function App() {
   const [showCAD, setShowCAD] = useState(false);
   const [showPhotoMatch, setShowPhotoMatch] = useState(false);
   const [showLuggageSim, setShowLuggageSim] = useState(false);
+  const [activeMaintenanceTicket, setActiveMaintenanceTicket] = useState<MaintenanceTicketData | null>(null);
 
   // Handle View Mode changes from the top toolbar
   const handleSelectViewMode = (mode: ViewMode) => {
@@ -101,6 +103,7 @@ export default function App() {
             selectedPod={selectedPod}
             onEnterWalkthrough={() => setShowWalkthrough(true)}
             onOpenAR={() => setShowAR(true)}
+            onOpenMaintenance={(ticket) => setActiveMaintenanceTicket(ticket)}
           />
         </section>
 
@@ -169,6 +172,14 @@ export default function App() {
             setShowPhotoMatch(false);
             setViewMode('isometric');
           }}
+        />
+      )}
+
+      {/* Modal: Tap-to-Fix Geo-Spatial Maintenance Dispatch */}
+      {activeMaintenanceTicket && (
+        <MaintenanceModal
+          ticket={activeMaintenanceTicket}
+          onClose={() => setActiveMaintenanceTicket(null)}
         />
       )}
 
